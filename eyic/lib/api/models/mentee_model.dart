@@ -7,6 +7,7 @@ class MenteeModel {
   String email;
   List<String> interestedSkills;
   int age;
+  String role;
 
   MenteeModel({
     required this.uid,
@@ -14,6 +15,7 @@ class MenteeModel {
     required this.email,
     required this.interestedSkills,
     required this.age,
+    required this.role,
   });
 
   Map<String, dynamic> toMap() {
@@ -23,6 +25,7 @@ class MenteeModel {
       'email': email,
       'interestedSkills': interestedSkills,
       'age': age,
+      'role':role
     };
   }
 
@@ -33,6 +36,7 @@ class MenteeModel {
       email: map['email'] as String,
       interestedSkills: map['interestedSkills'],
       age: map['age'] as int,
+      role: map['role'] as String
     );
   }
 

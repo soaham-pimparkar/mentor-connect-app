@@ -9,7 +9,8 @@ class LandingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final uid = FirebaseAuth.instance.currentUser!.uid;
+    final uid = FirebaseAuth.instance.currentUser!=null? FirebaseAuth.instance.currentUser!.uid : "";
+    print(uid);
     return StreamBuilder(
       stream: FirebaseAuth.instance.userChanges(),
       builder: (context, AsyncSnapshot<User?> snapshot) {
@@ -42,10 +43,11 @@ class LandingView extends StatelessWidget {
   }
 }
 
-Future<String?> _userData(String uid) async {
+Future<String?> _userData(String? uid) async {
+
+  if(uid==null || uid=="") return null;
   final data =
       await FirebaseFirestore.instance.collection("users").doc(uid).get();
-
   if (data.exists) {
     if (data.data()!["role"] == "mentee") {
       return "mentee";

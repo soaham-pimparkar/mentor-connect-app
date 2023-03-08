@@ -77,9 +77,11 @@ class SignInView extends StatelessWidget {
                 onPressed: () async {
                   try {
                     await _authCtr.signInUsingEmailAndPassword(
-                      "barvevedant@gmail.com",
-                      "apollo11",
+                      email.text,
+                      password.text,
                     );
+
+                    Get.offNamed('/');
                   } on Exception catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

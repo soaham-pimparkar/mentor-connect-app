@@ -29,6 +29,7 @@ class Authentication extends GetxController {
     String name,
     List<String> interestedSkills,
     int age,
+    String role,
   ) async {
     final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
@@ -41,6 +42,7 @@ class Authentication extends GetxController {
         email: email,
         interestedSkills: interestedSkills,
         age: age,
+        role: role
       ),
     );
     return userCredential.user!.uid;

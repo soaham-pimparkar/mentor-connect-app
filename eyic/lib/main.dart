@@ -8,13 +8,15 @@ import 'package:eyic/screens/mentee/courses_view/courses_view.dart';
 import 'package:eyic/screens/mentee/home_view/mentee_home_view.dart';
 import 'package:eyic/screens/mentee/profile_view/profile_view.dart';
 import 'package:eyic/screens/mentor/mentor_home_view.dart';
-import 'package:eyic/screens/testing_view/testing_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:eyic/screens/testing_view/testing_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'landing_view.dart';
 
+FirebaseAuth _auth  = FirebaseAuth.instance;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -49,18 +51,18 @@ class RootWidget extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/testing_view',
+      initialRoute: 'sign_in',
       getPages: [
         GetPage(
           name: "/",
           title: '/',
           page: () => const LandingView(),
         ),
-        GetPage(
-          name: "/testing_view",
-          title: '/testing_view',
-          page: () => const TestingView(),
-        ),
+        // GetPage(
+        //   name: "/testing_view",
+        //   title: '/testing_view',
+        //   page: () => const TestingView(),
+        // ),
         GetPage(
           name: "/mentor_dashboard",
           title: 'Mentor Dashboard',

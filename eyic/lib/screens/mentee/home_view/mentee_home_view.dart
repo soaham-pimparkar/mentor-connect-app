@@ -8,6 +8,7 @@ final _mentor = [
     email: "vivek.modal@gmail.com",
     interestedSkills: ["Machine Learning", "Application Development "],
     age: 15,
+    role: 'mentor'
   ),
   MenteeModel(
     uid: "2",
@@ -15,6 +16,7 @@ final _mentor = [
     email: "manasi.kulkarni@gmail.com",
     interestedSkills: ["Machine Learning", "Application Development "],
     age: 17,
+      role: 'mentor'
   ),
   MenteeModel(
     uid: "3",
@@ -22,6 +24,7 @@ final _mentor = [
     email: "mohan.patil@gmail.com",
     interestedSkills: ["Machine Learning", "Application Development "],
     age: 18,
+      role: 'mentor'
   ),
   MenteeModel(
     uid: "4",
@@ -29,6 +32,7 @@ final _mentor = [
     email: "ritika.jha@gmail.com",
     interestedSkills: ["Machine Learning", "Application Development "],
     age: 16,
+      role: 'mentor'
   ),
   MenteeModel(
     uid: "5",
@@ -36,6 +40,7 @@ final _mentor = [
     email: "soha.pal@gmail.com",
     interestedSkills: ["Machine Learning", "Application Development "],
     age: 17,
+      role: 'mentor'
   ),
 ];
 
