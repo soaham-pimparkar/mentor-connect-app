@@ -6,6 +6,7 @@ import 'authentication.dart';
 
 class CoursesDB {
   final _firestore = FirebaseFirestore.instance;
+  // ignore: unused_field
   final _authCtr = Get.put(Authentication());
 
   Future<List<CourseModel>> getAllCourses() async {

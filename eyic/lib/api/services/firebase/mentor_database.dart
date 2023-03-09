@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eyic/api/models/mentor_model.dart';
-import 'package:get/get.dart';
 
 class MentorDB {
   final _firestore = FirebaseFirestore.instance;
 
+  // ignore: unused_field
   int _startAt = 0;
 
   void incrementStart() {
@@ -17,7 +17,6 @@ class MentorDB {
     var list = <MentorModel>[];
     for (var i = 0; i < temp.length; i++) {
       list.add(MentorModel.fromMap(temp[i].data()));
-      print(temp[i]['name']);
     }
     return list;
   }

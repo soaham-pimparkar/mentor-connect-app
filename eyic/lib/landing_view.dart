@@ -4,7 +4,6 @@ import 'package:eyic/screens/mentor/mentor_home_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LandingView extends StatelessWidget {
   LandingView({super.key});
@@ -38,27 +37,25 @@ class LandingView extends StatelessWidget {
                   return const MenteeDashboardView();
                 }
               }
-              return Container(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Invalid user, please try again"),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () async {
-                              //Get.offNamed('/sign_in');
-                              await _firebaseAuth.signOut();
-                            },
-                            child: const Text("Sign Out"),
-                          ),
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Invalid user, please try again"),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            //Get.offNamed('/sign_in');
+                            await _firebaseAuth.signOut();
+                          },
+                          child: const Text("Sign Out"),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               );
             },
@@ -68,9 +65,9 @@ class LandingView extends StatelessWidget {
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Welcome to MentorSpace!"),
+              const Text("Welcome to MentorSpace!"),
               const SizedBox(height: 14),
-              Text("Please sign in or sign up to enter the platform"),
+              const Text("Please sign in or sign up to enter the platform"),
               const SizedBox(height: 14),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 128.0),
