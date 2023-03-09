@@ -3,6 +3,7 @@ import 'package:eyic/screens/auth_view/signin_view.dart';
 import 'package:eyic/screens/auth_view/signup_view.dart';
 import 'package:eyic/screens/mentee/chat_view/chat_view.dart';
 import 'package:eyic/screens/mentee/community_view/community_view.dart';
+import 'package:eyic/screens/mentee/connections_page/connections_page.dart';
 import 'package:eyic/screens/mentee/contact_us_view/contact_us_view.dart';
 import 'package:eyic/screens/mentee/courses_view/courses_view.dart';
 import 'package:eyic/screens/mentee/home_view/mentee_home_view.dart';
@@ -51,7 +52,7 @@ class RootWidget extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/',
+      initialRoute: "/connection_page",
       getPages: [
         GetPage(
           name: "/",
@@ -112,6 +113,11 @@ class RootWidget extends StatelessWidget {
           name: "/chats",
           title: 'Chats',
           page: () => const ChatView(),
+        ),
+        GetPage(
+          name: "/connection_page",
+          title: 'Connection Page',
+          page: () => ConnectionsPage(),
         ),
       ],
     );

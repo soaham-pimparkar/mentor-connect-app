@@ -2,24 +2,24 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eyic/api/models/mentor_model.dart';
 import 'package:get/get.dart';
 
-class MentorDB  {
+class MentorDB {
   final _firestore = FirebaseFirestore.instance;
 
   int _startAt = 0;
 
   void incrementStart() {
     _startAt += 15;
-   
   }
 
-  Future getMentors() async {
-    var data = await _firestore
-        .collection("mentors")
-        .startAt([_startAt])
-        .limit(15)
-        .get();
-    var list = data.docs.map((e) => MentorModel.fromMap(e.data()));
-
+  Future<List<MentorModel>> getMentors() async {
+    var data = await _firestore.collection("users").get();
+    var temp = data.docs.where((element) => element['role'] == 'mentor' ? true : false).toList();
+    var list = <MentorModel>[];
+    for (var i = 0; i < temp.length; i++) {
+      list.add(MentorModel.fromMap(temp[i].data()));
+      print(temp[i]['name']);
+    }
+    return list;
   }
 
   Future createMentor(MentorModel mentor) async {
