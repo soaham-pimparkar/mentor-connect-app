@@ -147,7 +147,7 @@ class SignUpView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: TextFormField(
                 controller: languages,
-                maxLines: 25,
+                maxLines: 5,
                 decoration: InputDecoration(
                   hintText: 'Languages spoken (seperate by ,)',
                   border: OutlineInputBorder(
@@ -161,7 +161,7 @@ class SignUpView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: TextFormField(
                 controller: interestedSkills,
-                maxLines: 5,
+                maxLines: 10,
                 decoration: InputDecoration(
                   hintText: 'Interested skills (seperate by ,)',
                   border: OutlineInputBorder(

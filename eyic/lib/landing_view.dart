@@ -7,15 +7,15 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class LandingView extends StatelessWidget {
-  LandingView({super.key});
-  final _firebaseAuth = FirebaseAuth.instance;
+  const LandingView({super.key});
+  //final _firebaseAuth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
     final uid = FirebaseAuth.instance.currentUser != null
         ? FirebaseAuth.instance.currentUser!.uid
         : "";
-    print(uid);
+    //print(uid);
     return StreamBuilder(
       stream: FirebaseAuth.instance.userChanges(),
       builder: (context, AsyncSnapshot<User?> snapshot) {
@@ -39,8 +39,8 @@ class LandingView extends StatelessWidget {
                 }
               }
               return Container(
-                child: Center(
-                  child: Column(
+                child: Scaffold(
+                  body: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Invalid user, please try again"),
@@ -51,7 +51,7 @@ class LandingView extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () async {
                               //Get.offNamed('/sign_in');
-                              await _firebaseAuth.signOut();
+                              await FirebaseAuth.instance.signOut();
                             },
                             child: const Text("Sign Out"),
                           ),

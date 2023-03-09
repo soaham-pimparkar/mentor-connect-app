@@ -1,4 +1,5 @@
 import 'package:eyic/api/models/mentee_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 final _mentor = [
@@ -69,6 +70,10 @@ class MenteeDashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final uid = FirebaseAuth.instance.currentUser != null
+        ? FirebaseAuth.instance.currentUser!.uid
+        : "";
+
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(

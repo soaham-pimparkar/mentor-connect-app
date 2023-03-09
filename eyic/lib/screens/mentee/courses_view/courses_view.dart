@@ -12,9 +12,11 @@ class CoursesView extends StatelessWidget {
       future: _getCourses(),
       builder: (context, AsyncSnapshot<List<CourseModel>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
+          print("snapshot is waiting");
           return const Center();
         }
         if (snapshot.hasData) {
+          print("snapshot has data called");
           final courses = snapshot.data!;
           return Scaffold(
             appBar: AppBar(
@@ -43,12 +45,15 @@ class CoursesView extends StatelessWidget {
                               children: [
                                 ListTile(
                                   title: Text(courses[index].title),
-                                  subtitle: Text("Duration : 22 hrs"),
+                                  subtitle: Text(courses[index].description),
                                 ),
                                 Spacer(),
-                                ListTile(
-                                  title: Text(courses[index].authorName),
-                                ),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Get.offNamed("eachCourse");
+                                    },
+                                    child: Text("Open")),
+                                Spacer(),
                               ],
                             ),
                           ),
@@ -61,6 +66,7 @@ class CoursesView extends StatelessWidget {
             ),
           );
         }
+        print('container returned');
         return Container();
       },
     );
@@ -68,6 +74,7 @@ class CoursesView extends StatelessWidget {
 }
 
 Future<List<CourseModel>> _getCourses() async {
+  print("get courses future called");
   final data = await FirebaseFirestore.instance.collection("courses").get();
   return data.docs.map((e) => CourseModel.fromMap(e.data())).toList();
 }

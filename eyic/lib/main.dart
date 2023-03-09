@@ -5,6 +5,8 @@ import 'package:eyic/screens/mentee/chat_view/chat_view.dart';
 import 'package:eyic/screens/mentee/community_view/community_view.dart';
 import 'package:eyic/screens/mentee/contact_us_view/contact_us_view.dart';
 import 'package:eyic/screens/mentee/courses_view/courses_view.dart';
+import 'package:eyic/screens/mentee/courses_view/widgets/each_course.dart';
+//import '../garbage/course_detail_view.dart';
 import 'package:eyic/screens/mentee/home_view/mentee_home_view.dart';
 import 'package:eyic/screens/mentee/profile_view/profile_view.dart';
 import 'package:eyic/screens/mentor/mentor_home_view.dart';
@@ -56,7 +58,7 @@ class RootWidget extends StatelessWidget {
         GetPage(
           name: "/",
           title: '/',
-          page: () => LandingView(),
+          page: () => const LandingView(),
         ),
         // GetPage(
         //   name: "/testing_view",
@@ -92,6 +94,11 @@ class RootWidget extends StatelessWidget {
           name: "/courses",
           title: 'Courses',
           page: () => const CoursesView(),
+        ),
+        GetPage(
+          name: "/eachCourse",
+          title: 'Each Course',
+          page: () => eachCourse(),
         ),
         // GetPage(
         //   name: "/courses",
