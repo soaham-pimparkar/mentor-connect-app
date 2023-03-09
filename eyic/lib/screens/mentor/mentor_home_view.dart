@@ -1,4 +1,5 @@
 import 'package:eyic/api/models/mentee_model.dart';
+import 'package:eyic/screens/community/communities_home_screen.dart';
 import 'package:flutter/material.dart';
 
 final _tokens = 180;
@@ -66,8 +67,135 @@ final _mentee = [
       tokens: 0),
 ];
 
-class MentorDashboardView extends StatelessWidget {
+class MentorDashboardView extends StatefulWidget {
   const MentorDashboardView({super.key});
+
+  @override
+  State<MentorDashboardView> createState() => _MentorDashboardViewState();
+}
+
+class _MentorDashboardViewState extends State<MentorDashboardView> {
+  int _currentScreenIndex = 0;
+
+  Widget _currentView(int index) {
+    switch (index) {
+      case 0:
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              const ListTile(
+                title: Text(
+                  "Hello",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: Text(
+                  "{username}",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const Divider(),
+              const ListTile(
+                title: Text(
+                  "My mentees",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: _mentee.length,
+                itemBuilder: (context, index) {
+                  final mentee = _mentee[index];
+                  return ListTile(
+                    leading: const Icon(Icons.account_circle),
+                    title: Text(mentee.name),
+                    trailing: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.chat),
+                    ),
+                  );
+                },
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.currency_bitcoin),
+                title: Text(
+                  "Mentorspace tokens earned : $_tokens",
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Visit marketplace"),
+                  ),
+                ),
+              ),
+              const Divider(),
+              const ListTile(
+                title: Text(
+                  "My contributions : ",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 14),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Make a contribution"),
+                  ),
+                ),
+              ),
+              const Divider(),
+              ListTile(
+                onTap: () {},
+                title: const Text("Report Abuse"),
+                trailing: const Icon(Icons.arrow_forward_ios),
+              ),
+              ListTile(
+                onTap: () {},
+                title: const Text("Contact us"),
+                trailing: const Icon(Icons.arrow_forward_ios),
+              ),
+            ],
+          ),
+        );
+      case 1:
+        return CommunitiesHomeScreen();
+      default:
+        return Text("Kahitari Gandlay");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,115 +204,25 @@ class MentorDashboardView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Mentorspace"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const ListTile(
-              title: Text(
-                "Hello",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                "{username}",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            const Divider(),
-            const ListTile(
-              title: Text(
-                "My mentees",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: _mentee.length,
-              itemBuilder: (context, index) {
-                final mentee = _mentee[index];
-                return ListTile(
-                  leading: const Icon(Icons.account_circle),
-                  title: Text(mentee.name),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.chat),
-                  ),
-                );
-              },
-            ),
-            const Divider(),
-            ListTile(
-              leading: const Icon(Icons.currency_bitcoin),
-              title: Text(
-                "Mentorspace tokens earned : $_tokens",
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Visit marketplace"),
-                ),
-              ),
-            ),
-            const Divider(),
-            const ListTile(
-              title: Text(
-                "My contributions : ",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16.0),
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-            const SizedBox(height: 14),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Make a contribution"),
-                ),
-              ),
-            ),
-            const Divider(),
-            ListTile(
-              onTap: () {},
-              title: const Text("Report Abuse"),
-              trailing: const Icon(Icons.arrow_forward_ios),
-            ),
-            ListTile(
-              onTap: () {},
-              title: const Text("Contact us"),
-              trailing: const Icon(Icons.arrow_forward_ios),
-            ),
-          ],
-        ),
+      body: _currentView(_currentScreenIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Communities',
+          ),
+        ],
+        currentIndex: _currentScreenIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: (index) {
+          setState(() {
+            _currentScreenIndex = index;
+          });
+        },
       ),
     );
   }
