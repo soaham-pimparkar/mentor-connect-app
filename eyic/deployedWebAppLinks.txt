@@ -1,0 +1,2 @@
+Project Console: https://console.firebase.google.com/project/mentorship20/overview
+Hosting URL: https://mentorship20.web.app
