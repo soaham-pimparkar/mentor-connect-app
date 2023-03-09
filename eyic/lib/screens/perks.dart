@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:eyic/api/models/perks_model.dart';
 
 class MSPerk extends StatelessWidget {
   const MSPerk({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class MSPerk extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Courses"),
+        title: const Text("Mentorspace Perks"),
       ),
       body: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
@@ -18,9 +19,7 @@ class MSPerk extends StatelessWidget {
             child: Card(
               child: SizedBox(
                 height: 150,
-                child: Row(
-                  children: [
-                    Flexible(
+                child: Flexible(
                       flex: 3,
                       fit: FlexFit.tight,
                       child: Column(
@@ -31,13 +30,12 @@ class MSPerk extends StatelessWidget {
                           ),
                           Spacer(),
                           ListTile(
-                            title: Text(courses[index].authorName),
+                            title: Text(perks[index].authorName),
                           ),
                         ],
                       ),
                     ),
-                  ],
-                ),
+
               ),
             ),
           );
