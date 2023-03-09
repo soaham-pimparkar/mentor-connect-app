@@ -10,6 +10,7 @@ import 'package:eyic/screens/mentee/courses_view/widgets/each_course.dart';
 import 'package:eyic/screens/mentee/home_view/mentee_home_view.dart';
 import 'package:eyic/screens/mentee/profile_view/profile_view.dart';
 import 'package:eyic/screens/mentor/mentor_home_view.dart';
+import 'package:eyic/screens/perks.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:eyic/screens/testing_view/testing_view.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -53,7 +54,7 @@ class RootWidget extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/',
+      initialRoute: '/perks_view',
       getPages: [
         GetPage(
           name: "/",
@@ -119,6 +120,11 @@ class RootWidget extends StatelessWidget {
           name: "/chats",
           title: 'Chats',
           page: () => const ChatView(),
+        ),
+        GetPage(
+          name: "/perks_view",
+          title: 'Perks',
+          page: () => const PerksView(),
         ),
       ],
     );
