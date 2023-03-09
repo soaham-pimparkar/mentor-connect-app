@@ -1,14 +1,16 @@
 import 'package:eyic/api/models/mentee_model.dart';
 import 'package:eyic/global/colors.dart';
-import 'package:eyic/screens/courses_view/courses_view.dart';
+import 'package:eyic/screens/community/communities_home_screen.dart';
+import 'package:eyic/screens/mentee/connections_page/connections_page.dart';
+import 'package:eyic/screens/mentee/courses_view/courses_view.dart';
 import 'package:eyic/screens/mentee/home_view/widgets/home_drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../community/communities_home_screen.dart';
-import '../connections_page/connections_page.dart';
+//import '../../community/communities_home_screen.dart';
+//import '../connections_page/connections_page.dart';
 
 final _mentor = [
   MenteeModel(

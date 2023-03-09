@@ -2,10 +2,12 @@ import 'package:eyic/api/models/mentee_model.dart';
 import 'package:eyic/global/colors.dart';
 import 'package:eyic/screens/community/communities_home_screen.dart';
 import 'package:eyic/screens/mentee/connections_page/connections_page.dart';
+import 'package:eyic/screens/mentee/courses_view/courses_view.dart';
+import 'package:eyic/screens/mentee/home_view/widgets/home_drawer.dart';
 import 'package:flutter/material.dart';
 
-import '../courses_view/courses_view.dart';
-import '../mentee/home_view/widgets/home_drawer.dart';
+//import '../mentee/courses_view/courses_view.dart';
+//import '../mentee/home_view/widgets/home_drawer.dart';
 
 final _tokens = 180;
 
