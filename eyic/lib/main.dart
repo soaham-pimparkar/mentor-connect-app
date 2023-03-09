@@ -51,7 +51,7 @@ class RootWidget extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/',
+      initialRoute: '/courses',
       getPages: [
         GetPage(
           name: "/",
