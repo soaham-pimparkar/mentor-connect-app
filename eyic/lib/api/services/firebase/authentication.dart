@@ -30,6 +30,10 @@ class Authentication extends GetxController {
     List<String> interestedSkills,
     int age,
     String role,
+    String gender,
+    List<String> languages,
+    String description,
+    int tokens,
   ) async {
     final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
@@ -37,13 +41,16 @@ class Authentication extends GetxController {
     );
     await MenteeDBCtr().createMentee(
       MenteeModel(
-        uid: userCredential.user!.uid,
-        name: name,
-        email: email,
-        interestedSkills: interestedSkills,
-        age: age,
-        role: role
-      ),
+          uid: userCredential.user!.uid,
+          name: name,
+          email: email,
+          interestedSkills: interestedSkills,
+          age: age,
+          role: role,
+          gender: gender,
+          languages: languages,
+          description: description,
+          tokens: tokens),
     );
     return userCredential.user!.uid;
   }

@@ -16,7 +16,7 @@ import 'package:get/get.dart';
 
 import 'landing_view.dart';
 
-FirebaseAuth _auth  = FirebaseAuth.instance;
+FirebaseAuth _auth = FirebaseAuth.instance;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -51,12 +51,12 @@ class RootWidget extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: 'sign_in',
+      initialRoute: '/',
       getPages: [
         GetPage(
           name: "/",
           title: '/',
-          page: () => const LandingView(),
+          page: () => LandingView(),
         ),
         // GetPage(
         //   name: "/testing_view",

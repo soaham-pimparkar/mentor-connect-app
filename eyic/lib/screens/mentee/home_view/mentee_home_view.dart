@@ -3,45 +3,65 @@ import 'package:flutter/material.dart';
 
 final _mentor = [
   MenteeModel(
-    uid: "1",
-    name: "Vivek Modak",
-    email: "vivek.modal@gmail.com",
-    interestedSkills: ["Machine Learning", "Application Development "],
-    age: 15,
-    role: 'mentor'
-  ),
+      uid: "1",
+      name: "Vivek Modak",
+      email: "vivek.modal@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 15,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
   MenteeModel(
-    uid: "2",
-    name: "Manasi Kulkarni",
-    email: "manasi.kulkarni@gmail.com",
-    interestedSkills: ["Machine Learning", "Application Development "],
-    age: 17,
-      role: 'mentor'
-  ),
+      uid: "2",
+      name: "Manasi Kulkarni",
+      email: "manasi.kulkarni@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 17,
+      role: 'mentor',
+      gender: 'female',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
   MenteeModel(
-    uid: "3",
-    name: "Mohan Patil",
-    email: "mohan.patil@gmail.com",
-    interestedSkills: ["Machine Learning", "Application Development "],
-    age: 18,
-      role: 'mentor'
-  ),
+      uid: "3",
+      name: "Mohan Patil",
+      email: "mohan.patil@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 18,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
   MenteeModel(
-    uid: "4",
-    name: "Ritika Jha",
-    email: "ritika.jha@gmail.com",
-    interestedSkills: ["Machine Learning", "Application Development "],
-    age: 16,
-      role: 'mentor'
-  ),
+      uid: "4",
+      name: "Ritika Jha",
+      email: "ritika.jha@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 16,
+      role: 'mentor',
+      gender: 'female',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
   MenteeModel(
-    uid: "5",
-    name: "Soha Pal",
-    email: "soha.pal@gmail.com",
-    interestedSkills: ["Machine Learning", "Application Development "],
-    age: 17,
-      role: 'mentor'
-  ),
+      uid: "5",
+      name: "Soha Pal",
+      email: "soha.pal@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 17,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
 ];
 
 class MenteeDashboardView extends StatelessWidget {
