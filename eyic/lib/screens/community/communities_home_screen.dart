@@ -1,6 +1,7 @@
 import 'package:eyic/api/models/community_model.dart';
+import 'package:eyic/screens/community/chat_screen.dart';
 import 'package:flutter/material.dart';
-// import 'get';
+import 'package:get/get.dart';
 
 class CommunitiesHomeScreen extends StatelessWidget {
   const CommunitiesHomeScreen({super.key});
@@ -11,13 +12,19 @@ class CommunitiesHomeScreen extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),
-      itemCount: 8,
+      itemCount: Community.communities.length,
       itemBuilder: (BuildContext context, int index) {
         return Card(
           color: Colors.primaries[index % 10],
           child: InkWell(
             onTap: () {
-              Text("text");
+              Get.to(
+                ChatPage(
+                  groupId: Community.communities[index].name,
+                  userName: "pimp",
+                  groupName: Community.communities[index].name,
+                )
+              );
             },
             child: Center(
               child: Column(

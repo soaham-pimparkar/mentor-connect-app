@@ -1,8 +1,14 @@
 import 'package:eyic/api/models/mentee_model.dart';
+import 'package:eyic/global/colors.dart';
+import 'package:eyic/screens/courses_view/courses_view.dart';
+import 'package:eyic/screens/mentee/home_view/widgets/home_drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../community/communities_home_screen.dart';
+import '../connections_page/connections_page.dart';
 
 final _mentor = [
   MenteeModel(
@@ -194,27 +200,45 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
             ),
           );
         case 1:
+          return ConnectionsPage();
+        case 2:
           return CommunitiesHomeScreen();
+        case 3:
+          return CoursesView();
         default:
           return Text("Kahitr Gandlay");
       }
     }
 
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: HomeDrawer(),
       appBar: AppBar(
+        // leading: IconButton(
+        //     onPressed: () {
+        //       Get.offNamed('/');
+        //     },
+        //     icon: Icon(Icons.home)),
         title: const Text("Mentorspace"),
       ),
       body: _currentView(_currentScreenIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            backgroundColor: bgColor,
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.handshake),
+            label: 'Connections',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.people),
             label: 'Communities',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Courses',
           ),
         ],
         currentIndex: _currentScreenIndex,

@@ -1,4 +1,5 @@
 import 'package:eyic/firebase_options.dart';
+import 'package:eyic/global/colors.dart';
 import 'package:eyic/screens/auth_view/signin_view.dart';
 import 'package:eyic/screens/auth_view/signup_view.dart';
 import 'package:eyic/screens/mentee/chat_view/chat_view.dart';
@@ -39,6 +40,7 @@ class RootWidget extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        //backgroundColor: bgColor,
         fontFamily: "Poppins",
         brightness: Brightness.light,
         appBarTheme: const AppBarTheme(

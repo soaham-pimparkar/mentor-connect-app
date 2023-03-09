@@ -1,6 +1,11 @@
 import 'package:eyic/api/models/mentee_model.dart';
+import 'package:eyic/global/colors.dart';
 import 'package:eyic/screens/community/communities_home_screen.dart';
+import 'package:eyic/screens/mentee/connections_page/connections_page.dart';
 import 'package:flutter/material.dart';
+
+import '../courses_view/courses_view.dart';
+import '../mentee/home_view/widgets/home_drawer.dart';
 
 final _tokens = 180;
 
@@ -191,7 +196,11 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
           ),
         );
       case 1:
+        return ConnectionsPage();
+      case 2:
         return CommunitiesHomeScreen();
+      case 3:
+        return CoursesView();
       default:
         return Text("Kahitari Gandlay");
     }
@@ -200,20 +209,31 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: HomeDrawer(),
       appBar: AppBar(
         title: const Text("Mentorspace"),
       ),
       body: _currentView(_currentScreenIndex),
       bottomNavigationBar: BottomNavigationBar(
+        //backgroundColor: bgColor,
+        //unselectedIconTheme: IconTheme(data: IconThemeData(color: Colors.black)),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            backgroundColor: bgColor,
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.shop),
+            label: 'MarketPlace',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.people),
             label: 'Communities',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Courses',
           ),
         ],
         currentIndex: _currentScreenIndex,
