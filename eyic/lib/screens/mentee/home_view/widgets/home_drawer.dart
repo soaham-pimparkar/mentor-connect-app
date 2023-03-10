@@ -54,14 +54,19 @@ class HomeDrawer extends StatelessWidget {
             trailing: const Icon(Icons.chat),
           ),
           ListTile(
-            onTap: () => Get.toNamed('courses'),
-            title: const Text("Courses"),
-            trailing: const Icon(Icons.book),
+            onTap: () => Get.toNamed('perks_view'),
+            title: const Text("MentorSpace Perks"),
+            trailing: const Icon(Icons.card_giftcard),
           ),
           ListTile(
-            onTap: () => Get.toNamed('community'),
-            title: const Text("Community"),
-            trailing: const Icon(Icons.group),
+            onTap: () => Get.toNamed('connection_page'),
+            title: const Text("Connections"),
+            trailing: const Icon(Icons.handshake),
+          ),
+          ListTile(
+            onTap: () => Get.toNamed('connection_page'),
+            title: const Text("MarketPlace"),
+            trailing: const Icon(Icons.shop),
           ),
           ListTile(
             onTap: () => Get.toNamed('contact_us'),

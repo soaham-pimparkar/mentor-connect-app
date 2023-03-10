@@ -2,7 +2,6 @@ import 'package:eyic/api/models/mentee_model.dart';
 import 'package:eyic/api/services/firebase/mentee_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:uuid/uuid.dart';
 
 class Authentication extends GetxController {
   final _firebaseAuth = FirebaseAuth.instance;
