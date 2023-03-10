@@ -1,6 +1,7 @@
 import 'package:eyic/api/models/mentee_model.dart';
 import 'package:eyic/global/colors.dart';
 import 'package:eyic/screens/community/communities_home_screen.dart';
+import 'package:eyic/screens/marketplace/marketplace_home_screen.dart';
 import 'package:eyic/screens/mentee/connections_page/connections_page.dart';
 import 'package:eyic/screens/mentee/courses_view/courses_view.dart';
 import 'package:eyic/screens/mentee/home_view/widgets/home_drawer.dart';
@@ -207,6 +208,8 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
           return CommunitiesHomeScreen();
         case 3:
           return CoursesView();
+        case 4:
+          return MarketplaceHomeScreen();
         default:
           return Text("Kahitr Gandlay");
       }
@@ -241,6 +244,10 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
             label: 'Courses',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Marketplace',
           ),
         ],
         currentIndex: _currentScreenIndex,

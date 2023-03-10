@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eyic/api/models/community_model.dart';
+import 'package:eyic/api/services/firebase/authentication.dart';
 import 'package:eyic/screens/community/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,14 +19,13 @@ class CommunitiesHomeScreen extends StatelessWidget {
         return Card(
           color: Colors.primaries[index % 10],
           child: InkWell(
-            onTap: () {
-              Get.to(
-                ChatPage(
-                  groupId: Community.communities[index].name,
-                  userName: "pimp",
-                  groupName: Community.communities[index].name,
-                )
-              );
+            onTap: () async {
+              String uid = Authentication().uid;
+              Get.to(ChatPage(
+                groupId: Community.communities[index].name,
+                userName: uid,
+                groupName: Community.communities[index].name,
+              ));
             },
             child: Center(
               child: Column(
