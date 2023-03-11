@@ -36,7 +36,7 @@ class MentorSelectionForm extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Age of mentor:',
-                    style: TextStyle(fontSize: 22),
+                    style: TextStyle(fontSize: 22, color: Colors.orange),
                   ),
                 ),
                 SizedBox(
@@ -73,7 +73,8 @@ class MentorSelectionForm extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Language of communication:',
-                    style: TextStyle(fontSize: 22),
+                    style: TextStyle(fontSize: 22, color: Colors.orange)
+                    ,
                   ),
                 ),
                 Row(
@@ -193,7 +194,7 @@ class MentorSelectionForm extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Gender:',
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(fontSize: 22, color: Colors.orange),
                     ),
                   ),
                   Obx(() => ListTile(
@@ -252,7 +253,7 @@ class MentorSelectionForm extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Locality:',
-                    style: TextStyle(fontSize: 22),
+                    style: TextStyle(fontSize: 22, color: Colors.orange),
                   ),
                 ),
                 Obx(() => ListTile(

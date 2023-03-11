@@ -230,7 +230,7 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shop),
-            label: 'MarketPlace',
+            label: 'Connections',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.people),
@@ -247,6 +247,7 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
         ],
         currentIndex: _currentScreenIndex,
         selectedItemColor: Colors.amber[800],
+        unselectedItemColor: Colors.white,
         onTap: (index) {
           setState(() {
             _currentScreenIndex = index;

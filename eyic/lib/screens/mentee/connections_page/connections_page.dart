@@ -49,18 +49,18 @@ class ConnectionsPage extends StatelessWidget {
                                     context: context,
                                     builder: ((context) {
                                       return Container(
-                                        color: Colors.white,
+                                        color: Theme.of(context).colorScheme.background,
                                         child: MentorSelectionForm(),
                                       );
                                     }),
                                   );
                                 }),
                                 child: Container(
-                                  height: 100,
+                                  height: 40,
                                   decoration: const BoxDecoration(
-                                    color: Colors.grey,
+                                    color: Color.fromARGB(255, 255, 182, 143),
                                     borderRadius: BorderRadius.all(
-                                      Radius.circular(15),
+                                      Radius.circular(8),
                                     ),
                                   ),
                                   child: Row(
@@ -69,12 +69,12 @@ class ConnectionsPage extends StatelessWidget {
                                     children: const [
                                       Icon(
                                         Icons.search,
-                                        size: 50,
+                                        size: 16,
                                       ),
                                       Text(
                                         'Look for new mentors',
                                         style: TextStyle(
-                                          fontSize: 22,
+                                          fontSize: 14,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),

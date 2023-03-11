@@ -252,6 +252,7 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
         ],
         currentIndex: _currentScreenIndex,
         selectedItemColor: Colors.amber[800],
+        unselectedItemColor: Theme.of(context).primaryColor,
         onTap: (index) {
           setState(() {
             _currentScreenIndex = index;
