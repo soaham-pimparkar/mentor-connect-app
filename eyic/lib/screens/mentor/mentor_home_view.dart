@@ -83,7 +83,7 @@ class MentorDashboardView extends StatefulWidget {
 }
 
 class _MentorDashboardViewState extends State<MentorDashboardView> {
-  int _currentScreenIndex = 4;
+  int _currentScreenIndex = 0;
 
   Widget _currentView(int index) {
     switch (index) {
@@ -93,19 +93,19 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
             children: [
               const ListTile(
                 title: Text(
-                  "Hello",
+                  "Welcome Back!",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(
-                  "{username}",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                // subtitle: Text(
+                //   "{username}",
+                //   style: TextStyle(
+                //     fontSize: 18,
+                //     fontWeight: FontWeight.w500,
+                //   ),
+                // ),
               ),
               const Divider(),
               const ListTile(
@@ -229,8 +229,8 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
             label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shop),
-            label: 'MarketPlace',
+            icon: Icon(Icons.handshake),
+            label: 'Connections',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.people),

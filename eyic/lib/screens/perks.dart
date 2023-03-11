@@ -22,6 +22,11 @@ class PerksView extends StatelessWidget {
           final perks = snapshot.data!;
           return Scaffold(
             appBar: AppBar(
+              leading: IconButton(
+                  onPressed: () {
+                    Get.offNamed('/');
+                  },
+                  icon: Icon(Icons.arrow_back)),
               title: const Text("MentorSpace perks"),
             ),
             body: ListView.builder(

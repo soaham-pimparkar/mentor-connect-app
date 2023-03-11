@@ -74,6 +74,78 @@ final _mentor = [
       description:
           "I can guide you with Machine learning and application development",
       tokens: 0),
+  MenteeModel(
+      uid: "5",
+      name: "Application development",
+      email: "soha.pal@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 17,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
+  MenteeModel(
+      uid: "5",
+      name: "Machine learning",
+      email: "soha.pal@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 17,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
+  MenteeModel(
+      uid: "5",
+      name: "Entrepreneurship",
+      email: "soha.pal@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 17,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
+  MenteeModel(
+      uid: "5",
+      name: "Soft skills",
+      email: "soha.pal@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 17,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
+  MenteeModel(
+      uid: "5",
+      name: "Blockchain",
+      email: "soha.pal@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 17,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
+  MenteeModel(
+      uid: "5",
+      name: "Photography",
+      email: "soha.pal@gmail.com",
+      interestedSkills: ["Machine Learning", "Application Development "],
+      age: 17,
+      role: 'mentor',
+      gender: 'male',
+      languages: ["english", "hindi", "marathi"],
+      description:
+          "I can guide you with Machine learning and application development",
+      tokens: 0),
 ];
 
 class MenteeDashboardView extends StatefulWidget {
@@ -99,19 +171,19 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
               children: [
                 const ListTile(
                   title: Text(
-                    "Hello",
+                    "Welcome Back!",
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  subtitle: Text(
-                    "{username}",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  // subtitle: Text(
+                  //   "{username}",
+                  //   style: TextStyle(
+                  //     fontSize: 18,
+                  //     fontWeight: FontWeight.w500,
+                  //   ),
+                  // ),
                 ),
                 const Divider(),
                 const ListTile(
@@ -125,7 +197,7 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-                  itemCount: _mentor.length,
+                  itemCount: 5,
                   itemBuilder: (context, index) {
                     final mentor = _mentor[index];
                     return ListTile(
@@ -141,7 +213,7 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
                 const Divider(),
                 const ListTile(
                   title: Text(
-                    "My groups (pinned)",
+                    "My groups",
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -152,13 +224,13 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
                   shrinkWrap: true,
                   itemCount: 3,
                   itemBuilder: (context, index) {
-                    final mentor = _mentor[index];
+                    final mentor = _mentor[index + 5];
                     return ListTile(
-                      leading: const Icon(Icons.account_circle),
+                      leading: const Icon(Icons.people),
                       title: Text(mentor.name),
                       trailing: IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.chat),
+                        icon: const Icon(Icons.arrow_circle_right),
                       ),
                     );
                   },
@@ -175,15 +247,15 @@ class _MenteeDashboardViewState extends State<MenteeDashboardView> {
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-                  itemCount: _mentor.length,
+                  itemCount: 3,
                   itemBuilder: (context, index) {
-                    final mentor = _mentor[index];
+                    final mentor = _mentor[index + 8];
                     return ListTile(
-                      leading: const Icon(Icons.account_circle),
+                      leading: const Icon(Icons.book),
                       title: Text(mentor.name),
                       trailing: IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.chat),
+                        icon: const Icon(Icons.arrow_circle_right),
                       ),
                     );
                   },
