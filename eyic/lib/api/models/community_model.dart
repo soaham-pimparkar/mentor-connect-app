@@ -7,7 +7,7 @@ class Community {
   Community({required this.name, required this.icon});
 
   static var communities = [
-    Community(name: "Application development", icon: Icons.currency_bitcoin),
+    Community(name: "App Dev", icon: Icons.currency_bitcoin),
     Community(name: "Blockchain", icon: Icons.mobile_friendly),
     Community(name: "Academics", icon: Icons.school),
     Community(name: "Career Guidance", icon: Icons.alarm),
