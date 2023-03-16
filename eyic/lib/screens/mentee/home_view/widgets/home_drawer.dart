@@ -73,6 +73,16 @@ class HomeDrawer extends StatelessWidget {
             title: const Text("Contact us"),
             trailing: const Icon(Icons.contact_support_sharp),
           ),
+          ListTile(
+            onTap: () => Get.toNamed('/feedback_form'),
+            title: const Text("Feedback"),
+            trailing: const Icon(Icons.format_italic),
+          ),
+          ListTile(
+            onTap: () => Get.toNamed('/abuse'),
+            title: const Text("Report abuse"),
+            trailing: const Icon(Icons.report),
+          ),
           StreamBuilder(
             stream: _authCtr.userChanges,
             builder: (context, AsyncSnapshot<User?> snapshot) {
