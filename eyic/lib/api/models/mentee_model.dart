@@ -5,13 +5,14 @@ class MenteeModel {
   String uid;
   String name;
   String email;
-  List<String> interestedSkills;
+  List<dynamic> interestedSkills;
   int age;
   String role;
   String gender;
-  List<String> languages;
+  List<dynamic> languages;
   String description;
   int tokens;
+  dynamic myMentors;
 
   MenteeModel({
     required this.uid,
@@ -24,6 +25,7 @@ class MenteeModel {
     required this.languages,
     required this.description,
     required this.tokens,
+    required this.myMentors,
   });
 
   Map<String, dynamic> toMap() {
@@ -37,22 +39,25 @@ class MenteeModel {
       'gender': gender,
       'languages': languages,
       'description': description,
-      'tokens': tokens
+      'tokens': tokens,
+      'myMentors': myMentors,
     };
   }
 
   factory MenteeModel.fromMap(Map<String, dynamic> map) {
     return MenteeModel(
-        uid: map['uid'] as String,
-        name: map['name'] as String,
-        email: map['email'] as String,
-        interestedSkills: map['interestedSkills'],
-        age: map['age'] as int,
-        role: map['role'] as String,
-        gender: map['gender'] as String,
-        languages: map['languages'],
-        description: map['description'] as String,
-        tokens: map['tokens'] as int);
+      uid: map['uid'] as String,
+      name: map['name'] as String,
+      email: map['email'] as String,
+      interestedSkills: map['interestedSkills'],
+      age: map['age'] as int,
+      role: map['role'] as String,
+      gender: map['gender'] as String,
+      languages: map['languages'],
+      description: map['description'] as String,
+      tokens: map['tokens'] as int,
+      myMentors: map['myMentors'],
+    );
   }
 
   String toJson() => json.encode(toMap());

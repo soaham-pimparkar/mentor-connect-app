@@ -1,6 +1,4 @@
 import 'dart:html';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:eyic/api/models/course_model.dart';
 import 'package:flutter/material.dart';
@@ -42,11 +40,6 @@ class eachCourse extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                Get.offNamed("/");
-              },
-              icon: Icon(Icons.arrow_back)),
           title: Text("Web development course kit"),
         ),
         body: ListView.builder(

@@ -16,7 +16,7 @@ class MentorListItem extends StatelessWidget {
         color: primary,
       ),
       title: Text(mentor.name),
-      subtitle: Text(mentor.description),
+      subtitle: Text(mentor.email),
     );
   }
 }

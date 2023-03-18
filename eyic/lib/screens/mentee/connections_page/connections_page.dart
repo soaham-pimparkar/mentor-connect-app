@@ -31,9 +31,9 @@ class ConnectionsPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
-                            height: 100,
+                            height: 200,
                             padding: const EdgeInsets.all(30),
-                            color: Colors.transparent,
+                            color: primary,
                             child: Center(
                               child: InkWell(
                                 onTap: (() {
@@ -56,7 +56,7 @@ class ConnectionsPage extends StatelessWidget {
                                   );
                                 }),
                                 child: Container(
-                                  height: 50,
+                                  height: 100,
                                   decoration: const BoxDecoration(
                                     color: Colors.grey,
                                     borderRadius: BorderRadius.all(
@@ -65,19 +65,16 @@ class ConnectionsPage extends StatelessWidget {
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: const [
                                       Icon(
                                         Icons.search,
-                                        size: 30,
-                                        color: Colors.black54,
+                                        size: 50,
                                       ),
                                       Text(
                                         'Look for new mentors',
                                         style: TextStyle(
-                                          color: Colors.black54,
-                                          fontSize: 18,
+                                          fontSize: 22,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -92,7 +89,7 @@ class ConnectionsPage extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.all(15.0),
                               child: Text(
-                                'Recommended mentors:',
+                                'My mentors:',
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,

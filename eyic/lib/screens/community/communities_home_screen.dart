@@ -40,7 +40,7 @@ class CommunitiesHomeScreen extends StatelessWidget {
                     Community.communities[index].name,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 24,
                     ),
                   ),
                 ],

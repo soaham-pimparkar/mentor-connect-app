@@ -6,7 +6,7 @@ class MentorModel {
   String email;
   String phoneNumber;
   String occupation;
-  String description;
+  String workingAt;
   String experience;
   int age;
   int tokens;
@@ -18,7 +18,7 @@ class MentorModel {
     required this.email,
     required this.phoneNumber,
     required this.occupation,
-    required this.description,
+    required this.workingAt,
     required this.experience,
     required this.age,
     required this.tokens,
@@ -32,7 +32,7 @@ class MentorModel {
       'email': email,
       'phoneNumber': phoneNumber,
       'occupation': occupation,
-      'workingAt': description,
+      'workingAt': workingAt,
       'experience': experience,
       'age': age,
       'tokens': tokens,
@@ -47,7 +47,7 @@ class MentorModel {
       email: map['email'] ?? '',
       phoneNumber: '',
       occupation: '',
-      description: '',
+      workingAt: '',
       experience: '',
       age: 0,
       tokens: 0,
@@ -57,6 +57,5 @@ class MentorModel {
 
   String toJson() => json.encode(toMap());
 
-  factory MentorModel.fromJson(String source) =>
-      MentorModel.fromMap(json.decode(source));
+  factory MentorModel.fromJson(String source) => MentorModel.fromMap(json.decode(source));
 }
