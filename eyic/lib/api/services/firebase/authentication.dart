@@ -51,6 +51,7 @@ class Authentication extends GetxController {
         description: description,
         tokens: tokens,
         myMentors: [],
+        myMentees: [],
       ),
     );
     return userCredential.user!.uid;

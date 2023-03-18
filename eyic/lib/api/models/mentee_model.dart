@@ -13,6 +13,7 @@ class MenteeModel {
   String description;
   int tokens;
   dynamic myMentors;
+  dynamic myMentees;
 
   MenteeModel({
     required this.uid,
@@ -26,6 +27,7 @@ class MenteeModel {
     required this.description,
     required this.tokens,
     required this.myMentors,
+    required this.myMentees,
   });
 
   Map<String, dynamic> toMap() {
@@ -41,6 +43,7 @@ class MenteeModel {
       'description': description,
       'tokens': tokens,
       'myMentors': myMentors,
+      'myMentees': myMentees,
     };
   }
 
@@ -56,7 +59,8 @@ class MenteeModel {
       languages: map['languages'],
       description: map['description'] as String,
       tokens: map['tokens'] as int,
-      myMentors: map['myMentors'],
+      myMentors: map['myMentors'] as dynamic,
+      myMentees: map['myMentees'] as dynamic,
     );
   }
 

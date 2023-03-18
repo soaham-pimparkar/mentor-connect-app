@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eyic/api/models/mentee_model.dart';
 import 'package:eyic/global/colors.dart';
 import 'package:eyic/screens/community/communities_home_screen.dart';
@@ -5,76 +6,72 @@ import 'package:eyic/screens/marketplace/marketplace_home_screen.dart';
 import 'package:eyic/screens/mentee/connections_page/connections_page.dart';
 import 'package:eyic/screens/mentee/courses_view/courses_view.dart';
 import 'package:eyic/screens/mentee/home_view/widgets/home_drawer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:uuid/uuid.dart';
+
+import '../../api/models/chat_model.dart';
+import '../../api/models/mentor_model.dart';
+import '../mentee/chat_view/widgets/chat_details.dart';
 
 //import '../mentee/courses_view/courses_view.dart';
 //import '../mentee/home_view/widgets/home_drawer.dart';
 
 final _tokens = 180;
 
-// final _mentee = [
-//   MenteeModel(
-//       uid: "1",
-//       name: "Vivek Modak",
-//       email: "vivek.modal@gmail.com",
-//       interestedSkills: ["Machine Learning", "Application Development "],
-//       age: 15,
-//       role: 'mentee',
-//       gender: 'male',
-//       languages: ["english", "hindi", "marathi"],
-//       description:
-//           "I wish to learn Machine learning and application development",
-//       tokens: 0),
-//   MenteeModel(
-//       uid: "2",
-//       name: "Manasi Kulkarni",
-//       email: "manasi.kulkarni@gmail.com",
-//       interestedSkills: ["Machine Learning", "Application Development "],
-//       age: 17,
-//       role: 'mentee',
-//       gender: 'female',
-//       languages: ["english", "hindi", "marathi"],
-//       description:
-//           "I wish to learn Machine learning and application development",
-//       tokens: 0),
-//   MenteeModel(
-//       uid: "3",
-//       name: "Mohan Patil",
-//       email: "mohan.patil@gmail.com",
-//       interestedSkills: ["Machine Learning", "Application Development "],
-//       age: 18,
-//       role: 'mentee',
-//       gender: 'male',
-//       languages: ["english", "hindi", "marathi"],
-//       description:
-//           "I wish to learn Machine learning and application development",
-//       tokens: 0),
-//   MenteeModel(
-//       uid: "4",
-//       name: "Ritika Jha",
-//       email: "ritika.jha@gmail.com",
-//       interestedSkills: ["Machine Learning", "Application Development "],
-//       age: 16,
-//       role: 'mentee',
-//       gender: 'female',
-//       languages: ["english", "hindi", "marathi"],
-//       description:
-//           "I wish to learn Machine learning and application development",
-//       tokens: 0),
-//   MenteeModel(
-//       uid: "5",
-//       name: "Soha Pal",
-//       email: "soha.pal@gmail.com",
-//       interestedSkills: ["Machine Learning", "Application Development "],
-//       age: 17,
-//       role: 'mentee',
-//       gender: 'male',
-//       languages: ["english", "hindi", "marathi"],
-//       description:
-//           "I wish to learn Machine learning and application development",
-//       tokens: 0),
-// ];
+Future<MenteeModel> getMentorData() async {
+  final uid = FirebaseAuth.instance.currentUser!.uid;
+  final data =
+      await FirebaseFirestore.instance.collection("users").doc(uid).get();
+  print(data.data());
+  return MenteeModel.fromMap(data.data()!);
+}
+
+Future<List<MentorModel>> getMentees(List<dynamic> uids) async {
+  List<MentorModel> mentors = [];
+
+  for (var uid in uids) {
+    final data = await FirebaseFirestore.instance
+        .collection("users")
+        .doc((uid as String).trim())
+        .get();
+    mentors.add(MentorModel.fromMap(data.data()!));
+  }
+
+  return mentors;
+}
+
+Future chatRoom(MentorModel mentor, MenteeModel mentee) async {
+  final data = await FirebaseFirestore.instance
+      .collection("chats")
+      .where("menteeId", isEqualTo: mentee.uid)
+      .where("mentorId", isEqualTo: mentor.uid)
+      .get();
+  final chats = data.docs;
+
+  if (chats.isNotEmpty) {
+    final chat = ChatModel.fromMap(data.docs.first.data());
+    Get.to(() => ChatDetails(chat: chat));
+  } else {
+    final chatId = const Uuid().v4();
+    final newChat = ChatModel(
+      chatId: chatId,
+      timeStamp: DateTime.now().toIso8601String(),
+      menteeId: mentee.uid,
+      menteeName: mentee.name,
+      mentorId: mentor.uid,
+      mentorname: mentor.name,
+    );
+    await FirebaseFirestore.instance
+        .collection("chats")
+        .doc(chatId)
+        .set(
+          newChat.toMap(),
+        )
+        .then((value) => Get.to(() => ChatDetails(chat: newChat)));
+  }
+}
 
 class MentorDashboardView extends StatefulWidget {
   const MentorDashboardView({super.key});
@@ -89,118 +86,142 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
   Widget _currentView(int index) {
     switch (index) {
       case 0:
-        return SingleChildScrollView(
-          child: Column(
-            children: [
-              const ListTile(
-                title: Text(
-                  "Hello",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
+        return FutureBuilder(
+            future: getMentorData(),
+            builder: (context, AsyncSnapshot<MenteeModel> snapshot) {
+              if (snapshot.hasData) {
+                final mentor = snapshot.data!;
+                final mentees = mentor.myMentees;
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: const Text(
+                          "Hello",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(
+                          mentor.name,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      const Divider(),
+                      const ListTile(
+                        title: Text(
+                          "My mentees",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      FutureBuilder(
+                        future: getMentees(mentees),
+                        builder: (context,
+                            AsyncSnapshot<List<MentorModel>> snapshot) {
+                          if (snapshot.hasData) {
+                            final mentees = snapshot.data!;
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: mentees.length,
+                              itemBuilder: (context, index) {
+                                final mentee = mentees[index];  
+                                return ListTile(
+                                  leading: const Icon(Icons.account_circle),
+                                  title: Text(mentee.name),
+                                  trailing: IconButton(
+                                    onPressed: () async {
+                                      await chatRoom(
+                                        mentee,
+                                        mentor,
+                                      );
+                                    },
+                                    icon: const Icon(Icons.chat),
+                                  ),
+                                );
+                              },
+                            );
+                          }
+                          return Container();
+                        },
+                      ),
+                      const Divider(),
+                      ListTile(
+                        leading: const Icon(Icons.currency_bitcoin),
+                        title: Text(
+                          "Mentorspace tokens earned : $_tokens",
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Visit marketplace"),
+                          ),
+                        ),
+                      ),
+                      const Divider(),
+                      const ListTile(
+                        title: Text(
+                          "My contributions : ",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                        height: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text("Make a contribution"),
+                          ),
+                        ),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        onTap: () {
+                          Get.toNamed("/abuse");
+                        },
+                        title: const Text("Report Abuse"),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                      ),
+                      ListTile(
+                        onTap: () {},
+                        title: const Text("Contact us"),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                      ),
+                    ],
                   ),
-                ),
-                subtitle: Text(
-                  "{username}",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              const Divider(),
-              const ListTile(
-                title: Text(
-                  "My mentees",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              // ListView.builder(
-              //   shrinkWrap: true,
-              //   itemCount: _mentee.length,
-              //   itemBuilder: (context, index) {
-              //     final mentee = _mentee[index];
-              //     return ListTile(
-              //       leading: const Icon(Icons.account_circle),
-              //       title: Text(mentee.name),
-              //       trailing: IconButton(
-              //         onPressed: () {},
-              //         icon: const Icon(Icons.chat),
-              //       ),
-              //     );
-              //   },
-              // ),
-              const Divider(),
-              ListTile(
-                leading: const Icon(Icons.currency_bitcoin),
-                title: Text(
-                  "Mentorspace tokens earned : $_tokens",
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Visit marketplace"),
-                  ),
-                ),
-              ),
-              const Divider(),
-              const ListTile(
-                title: Text(
-                  "My contributions : ",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16.0),
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 14),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text("Make a contribution"),
-                  ),
-                ),
-              ),
-              const Divider(),
-              ListTile(
-                onTap: () {
-                  Get.toNamed("/abuse");
-                },
-                title: const Text("Report Abuse"),
-                trailing: const Icon(Icons.arrow_forward_ios),
-              ),
-              ListTile(
-                onTap: () {},
-                title: const Text("Contact us"),
-                trailing: const Icon(Icons.arrow_forward_ios),
-              ),
-            ],
-          ),
-        );
+                );
+              }
+              return Container();
+            });
       case 1:
         return ConnectionsPage();
       case 2:
