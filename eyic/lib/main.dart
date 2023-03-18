@@ -14,7 +14,7 @@ import 'package:eyic/screens/mentee/home_view/mentee_home_view.dart';
 import 'package:eyic/screens/mentee/profile_view/profile_view.dart';
 import 'package:eyic/screens/mentor/mentor_home_view.dart';
 import 'package:eyic/screens/programs/programs_view.dart';
-import 'package:eyic/screens/perks.dart';
+import 'package:eyic/screens/perks_view/perks_view.dart';
 import 'package:eyic/screens/report_abuse/report_abuse_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:eyic/screens/testing_view/testing_view.dart';
@@ -138,9 +138,19 @@ class RootWidget extends StatelessWidget {
           page: () => const PerksView(),
         ),
         GetPage(
+          name: "/perks_detail_view",
+          title: 'Perks Detail',
+          page: () => const PerksView(),
+        ),
+        GetPage(
           name: "/connection_page",
           title: 'Connection Page',
           page: () => ConnectionsPage(),
+        ),
+        GetPage(
+          name: "/programs",
+          title: 'Mentorspace programs',
+          page: () => const ProgramsView(),
         ),
       ],
     );

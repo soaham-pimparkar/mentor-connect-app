@@ -15,7 +15,7 @@ class ProgramDetailsView extends StatelessWidget {
           ),
           ListTile(
             title: Text("Useful for :"),
-            subtitle: Text(data["useful_for"]),
+            subtitle: Text(data["usefulFor"]),
           ),
           ListTile(
             title: Text("Description:"),
@@ -25,11 +25,14 @@ class ProgramDetailsView extends StatelessWidget {
             title: Text("Our mentors"),
           ),
           const SizedBox(height: 70),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Text("Enroll Now!"),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Enroll Now!"),
+              ),
             ),
           ),
         ],

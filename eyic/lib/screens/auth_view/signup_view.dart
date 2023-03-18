@@ -178,19 +178,20 @@ class SignUpView extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     try {
-                      await _authCtr.signUpUsingEmailAndPassword(
-                          email.text,
-                          password.text,
-                          name.text,
-                          interestedSkills.text.split(","),
-                          int.parse(age.text),
-                          role.text,
-                          gender.text,
-                          languages.text.split(","),
-                          description.text,
-                          0);
-
-                      Get.offNamed('/');
+                      await _authCtr
+                          .signUpUsingEmailAndPassword(
+                            email.text,
+                            password.text,
+                            name.text,
+                            interestedSkills.text.split(","),
+                            int.parse(age.text),
+                            role.text,
+                            gender.text,
+                            languages.text.split(","),
+                            description.text,
+                            0,
+                          )
+                          .then((value) => Get.offNamed('/'));
                     } catch (err) {}
                   },
                   child: const Text("Sign Up"),

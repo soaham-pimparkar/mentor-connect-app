@@ -6,74 +6,75 @@ import 'package:eyic/screens/mentee/connections_page/connections_page.dart';
 import 'package:eyic/screens/mentee/courses_view/courses_view.dart';
 import 'package:eyic/screens/mentee/home_view/widgets/home_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 //import '../mentee/courses_view/courses_view.dart';
 //import '../mentee/home_view/widgets/home_drawer.dart';
 
 final _tokens = 180;
 
-final _mentee = [
-  MenteeModel(
-      uid: "1",
-      name: "Vivek Modak",
-      email: "vivek.modal@gmail.com",
-      interestedSkills: ["Machine Learning", "Application Development "],
-      age: 15,
-      role: 'mentee',
-      gender: 'male',
-      languages: ["english", "hindi", "marathi"],
-      description:
-          "I wish to learn Machine learning and application development",
-      tokens: 0),
-  MenteeModel(
-      uid: "2",
-      name: "Manasi Kulkarni",
-      email: "manasi.kulkarni@gmail.com",
-      interestedSkills: ["Machine Learning", "Application Development "],
-      age: 17,
-      role: 'mentee',
-      gender: 'female',
-      languages: ["english", "hindi", "marathi"],
-      description:
-          "I wish to learn Machine learning and application development",
-      tokens: 0),
-  MenteeModel(
-      uid: "3",
-      name: "Mohan Patil",
-      email: "mohan.patil@gmail.com",
-      interestedSkills: ["Machine Learning", "Application Development "],
-      age: 18,
-      role: 'mentee',
-      gender: 'male',
-      languages: ["english", "hindi", "marathi"],
-      description:
-          "I wish to learn Machine learning and application development",
-      tokens: 0),
-  MenteeModel(
-      uid: "4",
-      name: "Ritika Jha",
-      email: "ritika.jha@gmail.com",
-      interestedSkills: ["Machine Learning", "Application Development "],
-      age: 16,
-      role: 'mentee',
-      gender: 'female',
-      languages: ["english", "hindi", "marathi"],
-      description:
-          "I wish to learn Machine learning and application development",
-      tokens: 0),
-  MenteeModel(
-      uid: "5",
-      name: "Soha Pal",
-      email: "soha.pal@gmail.com",
-      interestedSkills: ["Machine Learning", "Application Development "],
-      age: 17,
-      role: 'mentee',
-      gender: 'male',
-      languages: ["english", "hindi", "marathi"],
-      description:
-          "I wish to learn Machine learning and application development",
-      tokens: 0),
-];
+// final _mentee = [
+//   MenteeModel(
+//       uid: "1",
+//       name: "Vivek Modak",
+//       email: "vivek.modal@gmail.com",
+//       interestedSkills: ["Machine Learning", "Application Development "],
+//       age: 15,
+//       role: 'mentee',
+//       gender: 'male',
+//       languages: ["english", "hindi", "marathi"],
+//       description:
+//           "I wish to learn Machine learning and application development",
+//       tokens: 0),
+//   MenteeModel(
+//       uid: "2",
+//       name: "Manasi Kulkarni",
+//       email: "manasi.kulkarni@gmail.com",
+//       interestedSkills: ["Machine Learning", "Application Development "],
+//       age: 17,
+//       role: 'mentee',
+//       gender: 'female',
+//       languages: ["english", "hindi", "marathi"],
+//       description:
+//           "I wish to learn Machine learning and application development",
+//       tokens: 0),
+//   MenteeModel(
+//       uid: "3",
+//       name: "Mohan Patil",
+//       email: "mohan.patil@gmail.com",
+//       interestedSkills: ["Machine Learning", "Application Development "],
+//       age: 18,
+//       role: 'mentee',
+//       gender: 'male',
+//       languages: ["english", "hindi", "marathi"],
+//       description:
+//           "I wish to learn Machine learning and application development",
+//       tokens: 0),
+//   MenteeModel(
+//       uid: "4",
+//       name: "Ritika Jha",
+//       email: "ritika.jha@gmail.com",
+//       interestedSkills: ["Machine Learning", "Application Development "],
+//       age: 16,
+//       role: 'mentee',
+//       gender: 'female',
+//       languages: ["english", "hindi", "marathi"],
+//       description:
+//           "I wish to learn Machine learning and application development",
+//       tokens: 0),
+//   MenteeModel(
+//       uid: "5",
+//       name: "Soha Pal",
+//       email: "soha.pal@gmail.com",
+//       interestedSkills: ["Machine Learning", "Application Development "],
+//       age: 17,
+//       role: 'mentee',
+//       gender: 'male',
+//       languages: ["english", "hindi", "marathi"],
+//       description:
+//           "I wish to learn Machine learning and application development",
+//       tokens: 0),
+// ];
 
 class MentorDashboardView extends StatefulWidget {
   const MentorDashboardView({super.key});
@@ -117,21 +118,21 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
                   ),
                 ),
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: _mentee.length,
-                itemBuilder: (context, index) {
-                  final mentee = _mentee[index];
-                  return ListTile(
-                    leading: const Icon(Icons.account_circle),
-                    title: Text(mentee.name),
-                    trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.chat),
-                    ),
-                  );
-                },
-              ),
+              // ListView.builder(
+              //   shrinkWrap: true,
+              //   itemCount: _mentee.length,
+              //   itemBuilder: (context, index) {
+              //     final mentee = _mentee[index];
+              //     return ListTile(
+              //       leading: const Icon(Icons.account_circle),
+              //       title: Text(mentee.name),
+              //       trailing: IconButton(
+              //         onPressed: () {},
+              //         icon: const Icon(Icons.chat),
+              //       ),
+              //     );
+              //   },
+              // ),
               const Divider(),
               ListTile(
                 leading: const Icon(Icons.currency_bitcoin),
@@ -186,7 +187,9 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
               ),
               const Divider(),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed("/abuse");
+                },
                 title: const Text("Report Abuse"),
                 trailing: const Icon(Icons.arrow_forward_ios),
               ),

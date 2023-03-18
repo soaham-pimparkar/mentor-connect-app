@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eyic/api/models/course_model.dart';
+import 'package:eyic/screens/perks_view/perks_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../api/models/perks_model.dart';
+import '../../api/models/perks_model.dart';
 
 class PerksView extends StatelessWidget {
   const PerksView({super.key});
@@ -15,7 +16,9 @@ class PerksView extends StatelessWidget {
       builder: (context, AsyncSnapshot<List<PerksModel>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           //print("snapshot is waiting");
-          return Center(child: const CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
         if (snapshot.hasData) {
           //print("snapshot has data called");
@@ -29,7 +32,13 @@ class PerksView extends StatelessWidget {
               itemCount: perks.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(
+                      PerksDetailView(
+                        perk: perks[index],
+                      ),
+                    );
+                  },
                   child: Card(
                     child: SizedBox(
                       height: 150,
@@ -51,8 +60,15 @@ class PerksView extends StatelessWidget {
                                 ),
                                 Spacer(),
                                 ElevatedButton(
-                                    onPressed: () {},
-                                    child: Icon(Icons.arrow_forward)),
+                                  onPressed: () {
+                                    Get.to(
+                                      PerksDetailView(
+                                        perk: perks[index],
+                                      ),
+                                    );
+                                  },
+                                  child: const Icon(Icons.arrow_forward),
+                                ),
                                 Spacer(),
                               ],
                             ),

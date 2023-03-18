@@ -40,16 +40,18 @@ class Authentication extends GetxController {
     );
     await MenteeDBCtr().createMentee(
       MenteeModel(
-          uid: userCredential.user!.uid,
-          name: name,
-          email: email,
-          interestedSkills: interestedSkills,
-          age: age,
-          role: role,
-          gender: gender,
-          languages: languages,
-          description: description,
-          tokens: tokens),
+        uid: userCredential.user!.uid,
+        name: name,
+        email: email,
+        interestedSkills: interestedSkills,
+        age: age,
+        role: role,
+        gender: gender,
+        languages: languages,
+        description: description,
+        tokens: tokens,
+        myMentors: [],
+      ),
     );
     return userCredential.user!.uid;
   }
