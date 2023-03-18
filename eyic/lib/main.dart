@@ -42,7 +42,7 @@ class RootWidget extends StatelessWidget {
       theme: ThemeData(
         //backgroundColor: bgColor,
         fontFamily: "Poppins",
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xffff6b00),
         ),
