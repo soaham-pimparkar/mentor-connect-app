@@ -3,6 +3,7 @@ import 'package:eyic/api/models/perks_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class PerksDetailView extends StatelessWidget {
   final PerksModel perk;
@@ -40,7 +41,9 @@ class PerksDetailView extends StatelessWidget {
             child: SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () async{
+                  await launchUrlString(perk.link);
+                },
                 child: Text("Redeem"),
               ),
             ),

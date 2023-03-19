@@ -112,11 +112,6 @@ class RootWidget extends StatelessWidget {
           title: 'Each Course',
           page: () => eachCourse(),
         ),
-        // GetPage(
-        //   name: "/courses",
-        //   title: '/courses',
-        //   page: () =>  CourseDetailView(),
-        // ),
         GetPage(
           name: "/contact_us",
           title: 'Contact Us',
@@ -151,6 +146,11 @@ class RootWidget extends StatelessWidget {
           name: "/programs",
           title: 'Mentorspace programs',
           page: () => const ProgramsView(),
+        ),
+        GetPage(
+          name: "/mentee/:id",
+          title: 'Mentee',
+          page: () => const MenteeProfileView(),
         ),
       ],
     );

@@ -19,7 +19,9 @@ class HomeDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             child: GestureDetector(
-              onTap: () => Get.toNamed("profile"),
+              onTap: () => Get.toNamed(
+                "/profile?uid=${FirebaseAuth.instance.currentUser!.uid}",
+              ),
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
