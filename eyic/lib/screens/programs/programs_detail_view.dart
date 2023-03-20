@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eyic/api/models/mentee_model.dart';
+import 'package:eyic/api/models/mentor_model.dart';
 import 'package:flutter/material.dart';
 
 class ProgramDetailsView extends StatelessWidget {
@@ -21,8 +24,25 @@ class ProgramDetailsView extends StatelessWidget {
             title: Text("Description:"),
             subtitle: Text(data["description"]),
           ),
-          const ListTile(
-            title: Text("Our mentors"),
+          ListTile(
+            title: const Text("Our mentors"),
+            subtitle: FutureBuilder(
+              future: _getMentors(),
+              builder: (context, AsyncSnapshot<List<MentorModel>> snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(snapshot.data![index].name),
+                      );
+                    },
+                  );
+                }
+                return Container();
+              },
+            ),
           ),
           const SizedBox(height: 70),
           Padding(
@@ -39,4 +59,13 @@ class ProgramDetailsView extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<List<MentorModel>> _getMentors() async {
+  final data = await FirebaseFirestore.instance
+      .collection("users")
+      .where("role", isEqualTo: "mentor")
+      .get();
+
+  return data.docs.map((e) => MentorModel.fromMap(e.data())).toList();
 }
