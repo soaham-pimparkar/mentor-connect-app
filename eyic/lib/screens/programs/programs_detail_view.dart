@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eyic/api/models/mentee_model.dart';
 import 'package:eyic/api/models/mentor_model.dart';
+import 'package:eyic/api/models/program_model.dart';
 import 'package:flutter/material.dart';
 
 class ProgramDetailsView extends StatelessWidget {
-  final Map data;
+  final ProgramModel data;
   const ProgramDetailsView({super.key, required this.data});
 
   @override
@@ -14,18 +15,18 @@ class ProgramDetailsView extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            title: Text(data["title"]),
+            title: Text(data.title),
           ),
           ListTile(
             title: Text("Useful for :"),
-            subtitle: Text(data["usefulFor"]),
+            subtitle: Text("${data.usefulFor}"),
           ),
           ListTile(
             title: Text("Description:"),
-            subtitle: Text(data["description"]),
+            subtitle: Text("${data.description}"),
           ),
           ListTile(
-            title: const Text("Our mentors"),
+            title: const Text("Our mentors : "),
             subtitle: FutureBuilder(
               future: _getMentors(),
               builder: (context, AsyncSnapshot<List<MentorModel>> snapshot) {
@@ -51,7 +52,7 @@ class ProgramDetailsView extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Enroll Now!"),
+                child: const Text("Enroll Now!"),
               ),
             ),
           ),

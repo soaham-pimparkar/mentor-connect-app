@@ -5,63 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
-final _categories = [
-  {
-    "title": "Career guidance program",
-    "usefulFor":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "description":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "howItWorks":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-  },
-  {
-    "title": "Engineering guidance program",
-    "usefulFor":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "description":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "howItWorks":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-  },
-  {
-    "title": "Social change program",
-    "usefulFor":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "description":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "howItWorks":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-  },
-  {
-    "title": "Self improvement program",
-    "usefulFor":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "description":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "howItWorks":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-  },
-  {
-    "title": "Local Bandhu program",
-    "usefulFor":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "description":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "howItWorks":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-  },
-  {
-    "title": "Dheya.com program",
-    "usefulFor":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "description":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-    "howItWorks":
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, dui eu facilisis efficitur, enim dolor efficitur metus, quis tincidunt sapien eros eu elit. Vivamus id placerat felis. Phasellus ultrices est ac dictum lacinia. Donec congue, odio vitae tempus rhoncus, massa odio molestie est, vel dignissim nibh nisl vel lectus. Etiam sed dui leo. Suspendisse et nibh ligula. Aliquam dui lectus, elementum eget risus tincidunt, pretium suscipit odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id mauris at quam consectetur vehicula. Duis vitae velit diam. Aenean consequat turpis a erat vehicula fermentum. Nunc vel purus posuere, auctor magna at, ornare ex.",
-  },
-];
-
 Future<List<ProgramModel>> getPrograms() async {
   var data = await FirebaseFirestore.instance.collection("programs").get();
   return data.docs.map((e) => ProgramModel.fromMap(e.data())).toList();
@@ -86,7 +29,7 @@ class ProgramsView extends StatelessWidget {
                 child: Wrap(
                   spacing: 14,
                   runSpacing: 14,
-                  children: _categories
+                  children: programs
                       .map(
                         (map) => SizedBox(
                           height: 200,
@@ -97,7 +40,7 @@ class ProgramsView extends StatelessWidget {
                               child: Column(
                                 children: [
                                   ListTile(
-                                    title: Text(map["title"]!),
+                                    title: Text(map.title),
                                   ),
                                   const Spacer(),
                                   Padding(
