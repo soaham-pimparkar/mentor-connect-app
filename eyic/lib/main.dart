@@ -45,7 +45,7 @@ class RootWidget extends StatelessWidget {
       theme: ThemeData(
         //backgroundColor: bgColor,
         fontFamily: "Poppins",
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xffff6b00),
         ),
@@ -66,6 +66,11 @@ class RootWidget extends StatelessWidget {
           name: "/",
           title: '/',
           page: () => const LandingView(),
+        ),
+        GetPage(
+          name: "/marketplace",
+          title: 'Market Place',
+          page: () => const LandingView(index: 4),
         ),
         GetPage(
           name: "/mentor_dashboard",

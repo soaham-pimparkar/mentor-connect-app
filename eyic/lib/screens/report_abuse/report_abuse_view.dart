@@ -31,6 +31,7 @@ class ReportAbuseView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        //leading: IconButton(onPressed: onPressed, icon: icon),
         title: const Text("Report abuse"),
       ),
       body: ListView(
@@ -89,6 +90,19 @@ class ReportAbuseView extends StatelessWidget {
           ),
           ListTile(
             title: const Text(
+              "Proof of misconduct :",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: ElevatedButton(
+              onPressed: () {},
+              child: const Text("Upload file"),
+            ),
+          ),
+          ListTile(
+            title: const Text(
               "Description",
               style: TextStyle(
                 fontSize: 18,
@@ -125,8 +139,10 @@ class ReportAbuseView extends StatelessWidget {
                         "description": _reportCtr.description.text,
                         "timeStamp": DateTime.now().toIso8601String(),
                       },
-                    );
-                    _reportCtr.reset();
+                    ).then((value) {
+                      _reportCtr.reset();
+                      Get.offAllNamed("/");
+                    });
                   } catch (err) {
                     debugPrint(err.toString());
                   }

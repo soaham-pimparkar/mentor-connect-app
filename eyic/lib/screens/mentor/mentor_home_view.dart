@@ -74,14 +74,23 @@ Future chatRoom(MentorModel mentor, MenteeModel mentee) async {
 }
 
 class MentorDashboardView extends StatefulWidget {
-  const MentorDashboardView({super.key});
+  final int? index;
+  const MentorDashboardView({super.key, this.index});
 
   @override
   State<MentorDashboardView> createState() => _MentorDashboardViewState();
 }
 
 class _MentorDashboardViewState extends State<MentorDashboardView> {
-  int _currentScreenIndex = 4;
+  int _currentScreenIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.index != null) {
+      setState(() => _currentScreenIndex = widget.index!);
+    }
+  }
 
   Widget _currentView(int index) {
     switch (index) {
@@ -131,7 +140,7 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
                               shrinkWrap: true,
                               itemCount: mentees.length,
                               itemBuilder: (context, index) {
-                                final mentee = mentees[index];  
+                                final mentee = mentees[index];
                                 return ListTile(
                                   leading: const Icon(Icons.account_circle),
                                   title: Text(mentee.name),
@@ -167,7 +176,9 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
                         child: SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.offNamed('/marketplace');
+                            },
                             child: Text("Visit marketplace"),
                           ),
                         ),

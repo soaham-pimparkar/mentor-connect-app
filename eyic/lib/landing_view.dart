@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LandingView extends StatelessWidget {
-  const LandingView({super.key});
+  final int? index;
+  const LandingView({super.key, this.index});
   //final _firebaseAuth = FirebaseAuth.instance;
 
   @override
@@ -32,7 +33,7 @@ class LandingView extends StatelessWidget {
               if (snapshot.hasData) {
                 final value = snapshot.data;
                 if (value == "mentor") {
-                  return const MentorDashboardView();
+                  return MentorDashboardView(index: index);
                 } else {
                   return const MenteeDashboardView();
                 }
