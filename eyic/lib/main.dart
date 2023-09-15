@@ -112,11 +112,7 @@ class RootWidget extends StatelessWidget {
           title: 'Courses',
           page: () => const CoursesView(),
         ),
-        GetPage(
-          name: "/eachCourse",
-          title: 'Each Course',
-          page: () => eachCourse(),
-        ),
+      
         GetPage(
           name: "/contact_us",
           title: 'Contact Us',

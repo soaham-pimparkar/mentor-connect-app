@@ -4,14 +4,14 @@ import 'dart:convert';
 class ProgramModel {
   String id;
   String title;
-  String userfulFor;
+  String usefulFor;
   String description;
   String howItWorks;
 
   ProgramModel({
     required this.id,
     required this.title,
-    required this.userfulFor,
+    required this.usefulFor,
     required this.description,
     required this.howItWorks,
   });
@@ -20,7 +20,7 @@ class ProgramModel {
     return <String, dynamic>{
       'id': id,
       'title': title,
-      'userfulFor': userfulFor,
+      'usefulFor': usefulFor,
       'description': description,
       'howItWorks': howItWorks,
     };
@@ -30,7 +30,7 @@ class ProgramModel {
     return ProgramModel(
       id: map['id'] as String,
       title: map['title'] as String,
-      userfulFor: map['userfulFor'] as String,
+      usefulFor: map['usefulFor'] as String,
       description: map['description'] as String,
       howItWorks: map['howItWorks'] as String,
     );
