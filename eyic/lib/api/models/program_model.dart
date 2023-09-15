@@ -7,7 +7,7 @@ class ProgramModel {
   String userfulFor;
   String description;
   String howItWorks;
-  
+
   ProgramModel({
     required this.id,
     required this.title,
@@ -38,5 +38,6 @@ class ProgramModel {
 
   String toJson() => json.encode(toMap());
 
-  factory ProgramModel.fromJson(String source) => ProgramModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory ProgramModel.fromJson(String source) =>
+      ProgramModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

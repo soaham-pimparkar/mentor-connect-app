@@ -42,14 +42,16 @@ class MentorSelectionForm extends StatelessWidget {
                 SizedBox(
                   width: screenSize.width * 0.1,
                   child: TextField(
-                    controller: mentorSelectionFormController.startingAgeController.value,
+                    controller: mentorSelectionFormController
+                        .startingAgeController.value,
                   ),
                 ),
                 const Text('-', style: TextStyle(fontSize: 22)),
                 SizedBox(
                   width: screenSize.width * 0.1,
                   child: TextField(
-                    controller: mentorSelectionFormController.endingAgeController.value,
+                    controller:
+                        mentorSelectionFormController.endingAgeController.value,
                   ),
                 ),
               ],
@@ -80,18 +82,21 @@ class MentorSelectionForm extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text('1st Preference: ', style: TextStyle(fontSize: 18)),
+                    const Text('1st Preference: ',
+                        style: TextStyle(fontSize: 18)),
                     Obx(
                       (() => DropdownButton<String>(
                             hint: const Text('Preference 1'),
-                            value: mentorSelectionFormController.languagePriority1.value,
+                            value: mentorSelectionFormController
+                                .languagePriority1.value,
                             icon: const Icon(Icons.keyboard_arrow_down_rounded),
                             elevation: 9,
                             underline: Container(
                               height: 2,
                             ),
                             onChanged: (String? value) {
-                              mentorSelectionFormController.setLanguagePriority1(value!);
+                              mentorSelectionFormController
+                                  .setLanguagePriority1(value!);
                             },
                             items: [
                               'English',
@@ -111,18 +116,21 @@ class MentorSelectionForm extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text('2nd Preference: ', style: TextStyle(fontSize: 18)),
+                    const Text('2nd Preference: ',
+                        style: TextStyle(fontSize: 18)),
                     Obx(
                       (() => DropdownButton<String>(
                             hint: const Text('Preference 2'),
-                            value: mentorSelectionFormController.languagePriority2.value,
+                            value: mentorSelectionFormController
+                                .languagePriority2.value,
                             icon: const Icon(Icons.keyboard_arrow_down_rounded),
                             elevation: 9,
                             underline: Container(
                               height: 2,
                             ),
                             onChanged: (String? value) {
-                              mentorSelectionFormController.setLanguagePriority2(value!);
+                              mentorSelectionFormController
+                                  .setLanguagePriority2(value!);
                             },
                             items: [
                               'English',
@@ -142,18 +150,21 @@ class MentorSelectionForm extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text('3rd Preference: ', style: TextStyle(fontSize: 18)),
+                    const Text('3rd Preference: ',
+                        style: TextStyle(fontSize: 18)),
                     Obx(
                       (() => DropdownButton<String>(
                             hint: const Text('Preference 3'),
-                            value: mentorSelectionFormController.languagePriority3.value,
+                            value: mentorSelectionFormController
+                                .languagePriority3.value,
                             icon: const Icon(Icons.keyboard_arrow_down_rounded),
                             elevation: 9,
                             underline: Container(
                               height: 2,
                             ),
                             onChanged: (String? value) {
-                              mentorSelectionFormController.setLanguagePriority3(value!);
+                              mentorSelectionFormController
+                                  .setLanguagePriority3(value!);
                             },
                             items: [
                               'English',
@@ -200,7 +211,8 @@ class MentorSelectionForm extends StatelessWidget {
                         title: const Text('Male'),
                         leading: Radio<String>(
                           value: 'Male',
-                          groupValue: mentorSelectionFormController.gender.value,
+                          groupValue:
+                              mentorSelectionFormController.gender.value,
                           onChanged: (String? value) {
                             mentorSelectionFormController.setGender(value!);
                           },
@@ -211,7 +223,8 @@ class MentorSelectionForm extends StatelessWidget {
                           title: const Text('Female'),
                           leading: Radio<String>(
                             value: 'Female',
-                            groupValue: mentorSelectionFormController.gender.value,
+                            groupValue:
+                                mentorSelectionFormController.gender.value,
                             onChanged: (String? value) {
                               mentorSelectionFormController.setGender(value!);
                             },
@@ -223,7 +236,8 @@ class MentorSelectionForm extends StatelessWidget {
                           title: const Text('Any'),
                           leading: Radio<String>(
                             value: 'Any',
-                            groupValue: mentorSelectionFormController.gender.value,
+                            groupValue:
+                                mentorSelectionFormController.gender.value,
                             onChanged: (String? value) {
                               mentorSelectionFormController.setGender(value!);
                             },
@@ -269,11 +283,13 @@ class MentorSelectionForm extends StatelessWidget {
                       title: SizedBox(
                         width: screenSize.width * 0.1,
                         child: TextField(
-                          controller: mentorSelectionFormController.locality.value,
+                          controller:
+                              mentorSelectionFormController.locality.value,
                         ),
                       ),
                       leading: Radio<String>(
-                        value: mentorSelectionFormController.locality.value.text,
+                        value:
+                            mentorSelectionFormController.locality.value.text,
                         groupValue: mentorSelectionFormController.city.value,
                         onChanged: (String? value) {
                           mentorSelectionFormController.setCity(value!);

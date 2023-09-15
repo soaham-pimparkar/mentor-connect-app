@@ -53,12 +53,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDDqLmN1oYzrUi6Lnqul5jWyWadmluJ4-U',
-    appId: '1:1090193033461:web:5bbc814f029057aee09dbc',
-    messagingSenderId: '1090193033461',
-    projectId: 'mentorship20',
-    authDomain: 'mentorship20.firebaseapp.com',
-    storageBucket: 'mentorship20.appspot.com',
-    measurementId: 'G-HMWWS7MDLL',
+    apiKey: 'AIzaSyB-ZcP3h1ri0TNgTfJvyI9iD3KywSg4jvY',
+    appId: '1:284487424081:web:10fdd669edf89a46734070',
+    messagingSenderId: '284487424081',
+    projectId: 'mentorship20-95c08',
+    authDomain: 'mentorship20-95c08.firebaseapp.com',
+    storageBucket: 'mentorship20-95c08.appspot.com',
+    measurementId: 'G-DV2XNBNZRL',
   );
 }

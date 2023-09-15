@@ -17,7 +17,9 @@ class PerksView extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           //print("snapshot is waiting");
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Colors.blue,
+            ),
           );
         }
         if (snapshot.hasData) {
@@ -82,7 +84,7 @@ class PerksView extends StatelessWidget {
             ),
           );
         }
-        //print('container returned');
+        print('container returned');
         return Container();
       },
     );

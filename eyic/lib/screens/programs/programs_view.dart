@@ -80,8 +80,10 @@ class ProgramsView extends StatelessWidget {
         future: getPrograms(),
         builder: (context, AsyncSnapshot<List<ProgramModel>> snapshot) {
           if (snapshot.hasData) {
+            print('snapshot has data');
             final programs = snapshot.data!;
             if (programs.isNotEmpty) {
+              print('snapshot is not empty');
               return Center(
                 child: Wrap(
                   spacing: 14,
@@ -123,6 +125,7 @@ class ProgramsView extends StatelessWidget {
               );
             }
           }
+          print('snapshot doesnt have data');
           return Container();
         },
       ),

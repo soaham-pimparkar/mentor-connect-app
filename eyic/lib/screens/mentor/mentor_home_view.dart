@@ -264,8 +264,8 @@ class _MentorDashboardViewState extends State<MentorDashboardView> {
             label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shop),
-            label: 'MarketPlace',
+            icon: Icon(Icons.handshake),
+            label: 'Connections',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.people),
