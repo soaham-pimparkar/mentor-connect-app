@@ -45,3 +45,4 @@ app.*.map.json
 
 lib/screens/testing_view/
 /lib/firebase_options.dart
+/eyic/lib/firebase_options.dart
